@@ -58,7 +58,7 @@ ArucoMapping::ArucoMapping(ros::NodeHandle *nh) :
   nh->getParam("/aruco_mapping/calibration_file", calib_filename_);
   nh->getParam("/aruco_mapping/marker_size", temp_marker_size); 
   nh->getParam("/aruco_mapping/num_of_markers", num_of_markers_);
-  nh->getParam("/aruco_maping/space_type",space_type_);
+  nh->getParam("/aruco_mapping/space_type",space_type_);
   nh->getParam("/aruco_mapping/roi_allowed",roi_allowed_);
   nh->getParam("/aruco_mapping/roi_x",roi_x_);
   nh->getParam("/aruco_mapping/roi_y",roi_y_);
@@ -213,6 +213,7 @@ ArucoMapping::processImage(cv::Mat input_image,cv::Mat output_image)
   {
     //Set flag
     first_marker_detected_=true;
+    ROS_INFO("First detected!");
 
     // Detect lowest marker ID
     lowest_marker_id_ = temp_markers[0].id;
